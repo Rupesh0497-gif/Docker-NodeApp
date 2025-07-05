@@ -8,8 +8,7 @@ app.use(bodyParser.json());
 
 // Correct route with proper response
 app.get('/hello', (req, res) => {
-  console.log("Hey");
-  res.send("Hey bro, your first Docker app!");
+  res.send(`Hey ${os.environ.get('APP_NAME')}, your first Docker app!`);
 });
 
 app.listen(port, () => {

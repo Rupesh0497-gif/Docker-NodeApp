@@ -1,0 +1,8 @@
+version: "2.0"
+services:
+    myapp:
+      build: ./
+      ports:
+        - 3000:3000
+      environment:
+        - APP_NAME=MY_DOCKER

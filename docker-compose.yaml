@@ -6,3 +6,8 @@ services:
         - 3000:3000
       environment:
         - APP_NAME=MY_DOCKER
+      volumes:
+        - initialApplogs:/app/logs/
+
+volumes:
+    initialApplogs:

@@ -3,11 +3,13 @@ FROM node:18
 WORKDIR /app
 
 COPY package.json ./
-COPY index.js ./
+COPY . .
 
 RUN npm install
 
-EXPOSE 3000
+# ✅ Ensure log directory exists at runtime
+RUN mkdir -p logs
 
+EXPOSE 3000
 
 CMD ["npm", "start"]

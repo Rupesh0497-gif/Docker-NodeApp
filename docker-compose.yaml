@@ -8,6 +8,13 @@ services:
         - APP_NAME=MY_DOCKER
       volumes:
         - initialApplogs:/app/logs/
+      develop:
+       watch:
+        - path: ./        # Watch everything in current folder
+          target: /app    # Sync it into /app inside container
+          action: sync    # Fast sync (or use 'rebuild' if needed)
+        - path: ./package.json
+          action: rebuild
 
 volumes:
     initialApplogs:

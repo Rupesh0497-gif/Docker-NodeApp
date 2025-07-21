@@ -12,15 +12,18 @@ log4js.configure({
     "file"   : { type: "file", filename: "logs/out.log" }
   },
   categories: { 
-    default:  { appenders: [ 'stdout', 'file' ], level: 'info' }
+    default:  { appenders: [ 'stdout', 'file' ], level: 'debug' }
   }
 });
-
+console.error = (...args) => logger.error(...args);
 app.use(bodyParser.json());
 
 // Correct route with proper response
 app.get('/hello', (req, res) => {
+  console.log(yu)
   logger.info("Hey I have printed from hello api.")
+  
+
   res.send(`Hey ${process.env.APP_NAME}, your first Docker app!`);
 });
 app.get('/welcome', (req, res) => {
